@@ -40,3 +40,9 @@ func (l *LinkedList) Contains(v interface{}) bool {
 	}
 	return false
 }
+
+func (l *LinkedList) FromArray(array []interface{}) {
+	for _, item := range array {
+		l.Insert(item)
+	}
+}

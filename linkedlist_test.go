@@ -2,6 +2,7 @@ package linkedlist_test
 
 import (
 	"./linkedlist"
+	"math/rand"
 	"testing"
 )
 
@@ -37,5 +38,25 @@ func TestContains(t *testing.T) {
 	if ll.Contains(4) {
 		t.Fatal("List should not contain element")
 	}
+}
 
+func TestArray(t *testing.T) {
+	var ll linkedlist.LinkedList
+
+	array := make([]interface{}, 7)
+	array[0] = "first string"
+	array[1] = "just a string"
+	for i := 2; i < 7; i++ {
+		array[i] = rand.Int()
+	}
+
+	ll.FromArray(array)
+	for i := 0; i < 7; i++ {
+		if !ll.Contains(array[i]) {
+			t.Fatal("List should contain an array item")
+		}
+	}
+	if ll.Contains("just another string") {
+		t.Fatal("List should not contain item not from array")
+	}
 }
