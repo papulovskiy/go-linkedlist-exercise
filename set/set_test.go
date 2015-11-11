@@ -21,22 +21,22 @@ func TestInsertAndContains(t *testing.T) {
 
 func TestUniqueness(t *testing.T) {
 	var s set.Set
-	if s.Size != 0 {
+	if s.Size() != 0 {
 		t.Fatal("Set is not empty")
 	}
 
 	s.Add(1)
-	if s.Size != 1 {
-		t.Fatal("Set size is not correct")
+	if s.Size() != 1 {
+		t.Fatal("Size of set is not correct")
 	}
 
 	s.Add(2)
-	if s.Size != 2 {
-		t.Fatal("Set size is not correct")
+	if s.Size() != 2 {
+		t.Fatal("Size of set is not correct")
 	}
 
 	s.Add(1)
-	if s.Size != 2 {
-		t.Fatal("Set size is not correct")
+	if s.Size() != 2 {
+		t.Fatal("Set allows duplicates")
 	}
 }

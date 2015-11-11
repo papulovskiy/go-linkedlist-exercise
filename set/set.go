@@ -6,7 +6,6 @@ import (
 
 type Set struct {
 	list linkedlist.LinkedList
-	Size int
 }
 
 func (s *Set) Contains(v interface{}) bool {
@@ -16,6 +15,9 @@ func (s *Set) Contains(v interface{}) bool {
 func (s *Set) Add(v interface{}) {
 	if !s.Contains(v) {
 		s.list.Insert(v)
-		s.Size++
 	}
+}
+
+func (s *Set) Size() int {
+	return s.list.Size()
 }

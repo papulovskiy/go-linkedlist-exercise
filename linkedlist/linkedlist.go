@@ -34,7 +34,7 @@ func (l *LinkedList) Contains(v interface{}) bool {
 			return true
 		}
 		if item.next == nil {
-			return false
+			break
 		}
 		item = *item.next
 	}
@@ -51,4 +51,21 @@ func FromArray(array []interface{}) LinkedList {
 	var ll LinkedList
 	ll.FromArray(array)
 	return ll
+}
+
+func (l *LinkedList) Size() int {
+	cursor := l.Head
+	if cursor == nil {
+		return 0
+	}
+	size := 1
+	item := *cursor
+	for {
+		if item.next == nil {
+			break
+		}
+		item = *item.next
+		size++
+	}
+	return size
 }
