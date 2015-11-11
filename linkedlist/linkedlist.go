@@ -46,3 +46,9 @@ func (l *LinkedList) FromArray(array []interface{}) {
 		l.Insert(item)
 	}
 }
+
+func FromArray(array []interface{}) LinkedList {
+	var ll LinkedList
+	ll.FromArray(array)
+	return ll
+}
